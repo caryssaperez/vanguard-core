@@ -1,41 +1,44 @@
 {
-  "name": "vanguard",
+  "name": "vanguard-core",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": "9.5.0",
-    "npm": "5.8.0"
+    "node": "10.9.0",
+    "npm": "6.4.0"
   },
   "scripts": {
-    "start": "node index.js",
-    "server": "nodemon index.js",
-    "client": "cd client && npm run start",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "build": "tsc",
+    "watch": "nodemon -e ts -w ./lib -x npm run watch:serve",
+    "watch:serve": "ts-node --inspect lib/server.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/caryssaperez/vanguard.git"
+    "url": "git+https://github.com/caryssaperez/vanguard-core.git"
   },
   "author": "Caryssa Perez",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/caryssaperez/vanguard/issues"
+    "url": "https://github.com/caryssaperez/vanguard-core/issues"
   },
-  "homepage": "https://github.com/caryssaperez/vanguardn#readme",
+  "homepage": "https://github.com/caryssaperez/vanguard-core#readme",
   "dependencies": {
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.2",
-    "concurrently": "^3.5.1",
     "cookie-session": "^2.0.0-beta.3",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "express-graphql": "^0.6.12",
     "graphql": "^0.13.2",
-    "mongoose": "^5.0.15",
     "nodemon": "^1.17.5",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "pg": "^7.4.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.3"
   }
 }
