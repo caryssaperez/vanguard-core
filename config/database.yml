@@ -8,7 +8,7 @@ common: &common
 development: &development
   <<: *common
   username: <%= ENV["PG_USER"] %>
-  password: <%= ENV["PG_PASSWORD" %>
+  password: <%= ENV["PG_PASSWORD"] %>
   database: vanguard_development
 
 test:
