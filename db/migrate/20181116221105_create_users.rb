@@ -1,9 +1,10 @@
 class CreateUsers < ActiveRecord::Migration[5.1]
   def change
     create_table :users, id: :uuid do |t|
-      t.string :email
+      t.string :email, unique: true
       t.string :password_digest
       t.string :password_reset_token
+      t.datetime :password_reset_at
       t.string :remember_token
       t.string :name
       t.string :locale, default: "en"

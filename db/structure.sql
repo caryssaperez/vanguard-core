@@ -85,6 +85,7 @@ CREATE TABLE public.users (
     email character varying,
     password_digest character varying,
     password_reset_token character varying,
+    password_reset_at timestamp without time zone,
     remember_token character varying,
     name character varying,
     locale character varying DEFAULT 'en'::character varying,
