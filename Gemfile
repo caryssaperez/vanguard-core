@@ -26,7 +26,6 @@ gem 'rack-cors', '~> 1.0.0', require: 'rack/cors'
 
 # GraphQL API
 gem 'graphql', '~> 1.8.0'
-gem 'graphiql-rails', '~> 1.4.10'
 
 # Pagination
 gem 'kaminari', '~> 1.0'
@@ -58,6 +57,7 @@ gem "nokogiri", "~> 1.8.2"
 gem "oauth", "0.4.7"
 gem "bcrypt-ruby", "3.1.2"
 gem "accessly", "~> 1.0"
+gem "paranoia", "~> 2.2"
 
 group :development, :test do
   # Testing
@@ -84,6 +84,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener_web', '~> 1.3.0'
+  gem 'graphiql-rails', '~> 1.4.10'
 end
 
 group :test do
@@ -95,5 +96,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'graphiql-rails', group: :development
