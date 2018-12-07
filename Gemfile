@@ -58,6 +58,7 @@ gem "oauth", "0.4.7"
 gem "bcrypt-ruby", "3.1.2"
 gem "accessly", "~> 1.0"
 gem "paranoia", "~> 2.2"
+gem "turbolinks", "~> 2.5.4"
 
 group :development, :test do
   # Testing

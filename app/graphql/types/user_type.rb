@@ -1,9 +1,9 @@
 module Types
-  class User < BaseObject
-    name "User"
+  class UserType < BaseObject
+    graphql_name "User"
 
-    field :id, !types.ID
-    field :email, !types.String
-    field :name, !types.String
+    field :id, ID, null: false
+    field :email, String, null: false
+    field :name, String, null: false
   end
 end
