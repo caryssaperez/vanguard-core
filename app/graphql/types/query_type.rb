@@ -3,7 +3,7 @@ module Types
     graphql_name "Query"
 
     field :user, Types::UserType, null: true do
-      description "Find a post by ID"
+      description "Find a user by ID"
       argument :id, ID, required: true
     end
 
