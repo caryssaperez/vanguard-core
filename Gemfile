@@ -75,6 +75,9 @@ group :development, :test do
 
   # Benchmarking
   gem 'benchmark-ips', '~> 2.3.0', require: false
+
+  # Environment vars
+  gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
 end
 
 group :development do
