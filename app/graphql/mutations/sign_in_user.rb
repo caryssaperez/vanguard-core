@@ -11,7 +11,7 @@ module Mutations
       return unless user.authenticate(password)
 
       OpenStruct.new(
-        token: AuthToken.token(user),
+        token: AuthToken.new(user: user).token,
         user: user
       )
     end
