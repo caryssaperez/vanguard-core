@@ -1,4 +1,6 @@
 class CreateUsers < ActiveRecord::Migration[5.1]
+  tag :predeploy
+
   def change
     create_table :users, id: :uuid do |t|
       t.string :email, unique: true

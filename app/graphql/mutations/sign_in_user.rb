@@ -12,10 +12,10 @@ module Mutations
       return unless user
       return unless user.authenticate(input[:password])
 
-      OpenStruct.new({
+      OpenStruct.new(
         token: AuthToken.token(user),
         user: user
-      })
+      )
     end
   end
 end

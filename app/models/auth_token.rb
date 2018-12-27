@@ -1,6 +1,6 @@
 class AuthToken
 
-  JWT_ALGORITHM =  "HS256"
+  JWT_ALGORITHM = "HS256".freeze
 
   def self.payload(user)
     {

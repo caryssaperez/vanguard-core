@@ -1,4 +1,6 @@
 class CreateArcs < ActiveRecord::Migration[5.1]
+  tag :predeploy
+
   def change
     create_table :arcs, id: :uuid do |t|
       t.belongs_to :creator, references: :user, index: true, type: :uuid

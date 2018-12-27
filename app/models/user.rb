@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :arcs, dependent: :destroy, foreign_key: :creator_id
+  has_many :arcs, dependent: :destroy, foreign_key: :creator_id, inverse_of: :user
 
   attr_accessor :remember_token, :password_reset_token
 
@@ -22,8 +22,12 @@ class User < ApplicationRecord
   class << self
     # Returns the hash digest of the given string.
     def digest(string)
-      cost = ActiveModel::SecurePassword.min_cost ?
-        BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+      cost = if ActiveModel::SecurePassword.min_cost
+              BCrypt::Engine::MIN_COST
+            else
+              BCrypt::Engine.cost
+            end
+
       BCrypt::Password.create(string, cost: cost)
     end
 
@@ -53,11 +57,11 @@ class User < ApplicationRecord
   # Sets the password reset attributes.
   def create_reset_digest
     self.reset_token = User.new_token
-    update_columns({ reset_digest:  User.digest(reset_token), reset_sent_at: Time.zone.now })
+    update_columns(reset_digest: User.digest(reset_token), reset_sent_at: Time.zone.now)
   end
 
-   # Returns true if a password reset has expired.
-   def password_reset_expired?
+  # Returns true if a password reset has expired.
+  def password_reset_expired?
     password_reset_at < 2.hours.ago
   end
 

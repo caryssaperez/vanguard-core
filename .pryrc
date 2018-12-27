@@ -21,16 +21,16 @@ class CustomPrySettings
   def set_prompt
     rails_env = ENV["RAILS_ENV"]
     color = case rails_env
-    when "production"
-      :red
-    when "review", "development"
-      :blue
-    when "test"
-      :yellow
-    else
-      puts "Unknown rails environment (#{rails_env}) - Set it in `.pryrc` to customize it."
-      :pink
-    end
+            when "production"
+              :red
+            when "review", "development"
+              :blue
+            when "test"
+              :yellow
+            else
+              puts "Unknown rails environment (#{rails_env}) - Set it in `.pryrc` to customize it."
+              :pink
+            end
 
     custom_prompt = rails_env.colorize(color)
     Pry.config.prompt = proc { |obj, nest_level, _| "#{custom_prompt} > " }
