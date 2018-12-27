@@ -2,7 +2,7 @@ module Types
   class AuthenticateType < BaseObject
     graphql_name "Authenticate"
 
-    field :token, String
-    field :user, Types::UserType
+    field :token, String, null: true
+    field :user, Types::UserType, null: true
   end
 end

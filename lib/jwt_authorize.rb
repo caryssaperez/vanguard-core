@@ -9,10 +9,10 @@ class JwtAuthorize
   def call(env)
     unless env["REQUEST_PATH"].match?(/\/graphiql\/?/)
       begin
-        payload, header = JWT.decode(bearer, ENV["JWT_SECRET"], true, options)
+        payload, header = JWT.decode(bearer(env), ENV["JWT_SECRET"], true, options)
         env[:user] = payload["user"]
 
-        @app.call env
+        @app.call(env)
       rescue JWT::DecodeError
         [401, { "Content-Type" => "text/plain" }, ["A token must be passed."]]
       rescue JWT::ExpiredSignature
@@ -24,7 +24,7 @@ class JwtAuthorize
       end
     end
 
-    @app.call env
+    @app.call(env)
   end
 
   private
@@ -36,7 +36,7 @@ class JwtAuthorize
     }
   end
 
-  def bearer
+  def bearer(env)
     env.fetch("HTTP_AUTHORIZATION", "").slice(7..-1)
   end
 end

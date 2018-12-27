@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :arcs, dependent: :destroy, foreign_key: :creator_id, inverse_of: :user
+  has_many :arcs, dependent: :destroy, foreign_key: :creator_id, inverse_of: :creator
 
   attr_accessor :remember_token, :password_reset_token
 
