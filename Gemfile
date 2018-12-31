@@ -58,7 +58,6 @@ gem "oauth", "0.4.7"
 gem "bcrypt-ruby", "3.1.2"
 gem "accessly", "~> 1.0"
 gem "paranoia", "~> 2.2"
-gem "turbolinks", "~> 2.5.4"
 
 group :development, :test do
   # Testing
@@ -82,7 +81,6 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem "web-console", ">= 3.3.0"
   gem "listen", ">= 3.0.5", "< 3.2"
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring"
